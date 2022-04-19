@@ -1,0 +1,241 @@
+<! doctype html>
+<html lang="en">
+														<!-- This is a SFC using Vue3 -->
+<head>
+	<meta charset="UTF-8" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- jQuery library, needed for bootstrap apparently -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled Bootstrap/CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"
+	/>    
+	<!-- Latest compiled JavaScript for Bootstrap/CSS -->	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
+	<!-- Most Recent Font Awesome icon librar-->
+	<script src="https://kit.fontawesome.com/3f423bc2f1.js" crossorigin="anonymous"></script>
+	<!-- Latest Flickity library for Vue Carousel-->
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</head>
+<body>
+	<style> 
+		/* GENERAL STYLING */
+		body {
+			background-color: rgb(235, 235, 235);
+		}		
+ 
+		/* NAVBAR STYLES*/
+		#navbar {
+			position: fixed;
+		}
+		.navbar-dark {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+		.nav-link {
+			color: rgb(150, 150, 150);
+		}
+		#searchBar {
+			padding-top: 15px;
+		}
+
+		/* NAVBAR-BRAND STYLES - CARNIVOROUS CULTIVARS*/
+		.navbar-brand.custom {
+			color: lightgreen;
+		}
+		.navbar-brand > span {
+			color: lightcoral;
+		}
+		.navbar-brand > span:hover {
+			color: white;
+		}
+
+		/* DROPDOWN MENU STYLING */
+		.nav-link {
+			padding-left: 25px;
+		}
+		.nav-link:last-of-type {
+			padding-right: 2rem;
+		}
+		#navbarDropdown:hover {
+			color: rgb(12, 94, 202);
+			cursor: pointer;
+		}
+
+		/* PAGE CONTENT STYLING */
+		.page-main{
+			font-size: 1.5rem;
+		}
+		
+		#app-body {
+			padding-top: 6rem;
+		}
+		/* VIDEO STYLING*/
+		video {
+			display: block;
+			margin: 0 auto;
+			background-color: rgb(235, 235, 235);
+		}
+		.main-carousel {
+			width: 100%;
+		}
+
+		/* FOOTER STYLING */
+		footer {
+			background-color: lightcoral;
+		}
+		#socials{
+			padding: 0rem 2rem;
+			color: white;
+			margin-bottom: 1rem;		
+		}
+
+		/* #socials:first-of-type {
+			padding-left: 2rem;
+		} */
+
+		.col-md-9 {
+			border-right: solid 2px lightgreen;
+		}
+		.col-md-3 {
+			border-right: solid 2px lightgreen;
+		}
+				
+	</style>	
+											<!-- IMPORT VUE -->
+	<script type="importmap">
+		{
+		  "imports": {
+			"vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+		  }
+		}
+	</script>
+	  										<!-- BEGIN THE PAGE -->
+	<div id="app">	
+		<div class="container-fluid" id="navbar">
+											<!-- BEGIN NAVBAR -->
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-3">
+				<a class="navbar-brand custom"  href="#" aria-label="Carnivorous Cultivars">Carnivorous<span></br>Cultivars</span></a>
+											<!-- BEGIN DROPDOWN MENU -->				
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">
+							Account </br> & Lists
+						</a>
+											<!-- Dropdown Menu Options -->
+						<ul class="dropdown-menu dropdown-menu-dark" aria-label="Navbar Dropdown">
+							<li aria-label="Your List"><h5>&nbsp;Your Lists</h5></li>
+							<li><a class="dropdown-item" href="#">Create a list</a></li>
+						  	<li><a class="dropdown-item" href="#">View Lists</a></li>
+							<li><a class="dropdown-item" href="#">Watchlist</a></li>
+
+							<li><hr class="dropdown-divider"></li>
+
+							<li aria-label="Your Account"><h5>&nbsp;Your Account</h5></li>
+							<li><a class="dropdown-item" href="#">Account</a></li>
+							<li><a class="dropdown-item" href="#">Orders</a></li>
+						</ul>
+					</li>
+				</ul>
+				<a class="nav-link" aria-label="Orders and Returns" href="#" id="orders">Orders & <br> Returns</a>
+				<a class="nav-link" aria-label="Cart" href="#" id="cart">Cart</a>
+
+											<!-- SEARCH BAR -->
+				<form class="d-inline-flex flex-grow-1" id="searchBar" aria-label="Search Bar">
+					<input class="form-control" type="search" aria-label="Search Bar" placeholder="Enter Text Here">
+					<button class="btn btn-outline-success" aria-label="Search Button" type="submit">Search</button>
+				</form>
+			</nav>											
+		</div>
+
+												<!-- PAGE CONTENT -->
+		<div class="container-fluid" id="app-body">
+			<header>
+				<h1 style="text-align: center;"><strong>Welcome to Carnivorous Cultivars</strong></h1>
+			</header>
+			<br>
+												<!-- BULK OF INFORMATION ON THE PAGE -->
+			<main class="page-main">
+				<p style="text-align: center;" aria-label="Introduction">I have only had my traps about a year now, but they have divided incredibly fast. 
+					A little too fast for me to have space for in my current situation. I really only have space for about 6 or 7 traps, and I also have a couple house plants that I squeeze onto a window sill.
+					I love plants and can't wait to get more, but I just don't have the space for all of them right now. 
+					<br>
+					<br>
+					My dad came up with the idea to grow more and sell them if I don't have room. I also enjoy coding, so here we are. If you have any complaints or suggestions about my website feel free to share them with me.
+					I will update the type of traps available as I get more, but for now I only have 4 cultivars and the 'typical' Venus Fly Trap (I guess you can call it the default trap).
+				</p>
+				<br><br><br>
+													<!-- VIDEO CAROUSEL -->
+				<h3 style="text-align: center;">Enjoy these videos of my B-52 and FTS Crimson Sawtooth catching flies!</h3>
+				<div class="main-carousel" aria-label="Videos" data-flickity='{"wrapAround": true }'>
+					<div class="carousel-cell"><video :src="vids[0]" style="width: 80rem; height: 40rem;" controls></video></div>
+					<div class="carousel-cell"><video :src="vids[1]" style="width: 80rem; height: 40rem;" controls></video></div>
+				</div>
+				<br><br>
+												<!-- THIS IS JUST FOR ME TO SEE SOME SIMPLE VUE CODE 
+				<button @click="increment()">Clicked me {{ count }} times </button>-->
+			</main>
+			<br><br><br>
+													<!--- FOOTER CONTENT | SOCIAL MEDIA -->
+			<footer>
+				<div class="row">
+					<div class="col-lg-8">
+						<h5 style="padding-left: 2rem;" aria-label="Social Media"><u>Follow our Social Media!</u></h5>
+						<div class="row">
+							<div class="col-md-3">
+								<a class="fa-brands fa-twitter" id="socials" href="#"></a><br><br>
+								<a class="fa-brands fa-facebook" id="socials" href="#"></a><br><br>
+								<a class="fa-brands fa-instagram" id="socials" href="#"></a>
+							</div>
+							<div class="col-md-9">
+								<p style="float: left;">Random Info</p>
+								<p style="float: right;"> cont</p>
+								<br><br>
+								<p style="float: right;">Random Info</p>
+								<p style="float: left;"> cont</p>
+								<br><br>
+								<p style="float: left;">Random Info</p>
+								<p style="float: right;"> cont</p>
+							</div>
+						</div>
+					</div>
+														<!-- CONTACT INFORMATION -->
+					<div class="col-lg-4">
+						<h5 style="text-align: center;"><u>Thanks for visiting!</u></h5>
+						<strong>Address</strong> 
+						<p>123 Main Street &nbsp; Danville, Kentucky &nbsp; 40422</p>
+						<strong>E-Mail</strong> &emsp;<strong style="float: right; margin-right: 2rem;">Phone</strong><br>
+						<p style="float: right; margin-right: 0.5rem;">123-456-7890</p>
+						<p style="float: left;">your.email@gmail.com</p>
+					</div>
+				'</div>
+			</footer> 
+		</div>		
+	</div>
+											<!-- VUE SCRIPT BELOW -->
+	<script type="module">
+		import { createApp } from 'vue'; 
+		const app = createApp({
+			data() {
+				return {
+					vids: [
+						"Media/B52-feeding.mp4",
+						"Media/CrimsonSawtooth-feeding.MOV"
+					],
+					count: 0,
+				}							
+			},
+			methods: {
+				increment(count) {
+					return this.count++;
+				}
+			}
+		})
+		app.mount('#app')
+	</script>
+</body>
+</html>
