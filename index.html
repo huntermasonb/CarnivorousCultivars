@@ -172,8 +172,8 @@
 													<!-- VIDEO CAROUSEL -->
 				<h3 style="text-align: center;">Enjoy these videos of my B-52 and FTS Crimson Sawtooth catching flies!</h3>
 				<div class="main-carousel" aria-label="Videos" data-flickity='{"wrapAround": true }'>
-					<div class="carousel-cell"><video :src="vids[0]" style="width: 80rem; height: 40rem;" controls></video></div>
-					<div class="carousel-cell"><video :src="vids[1]" style="width: 80rem; height: 40rem;" controls></video></div>
+					<div class="carousel-cell"><iframe style="width:80rem; height: 40rem; padding: 10px;" src="https://www.youtube.com/embed/LJR_mcaG3_Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+					<div class="carousel-cell"><iframe style="width:80rem; height: 40rem; padding: 10px" src="https://www.youtube.com/embed/mHnR4wl2Onc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 				</div>
 				<br><br>
 												<!-- THIS IS JUST FOR ME TO SEE SOME SIMPLE VUE CODE 
@@ -222,10 +222,6 @@
 		const app = createApp({
 			data() {
 				return {
-					vids: [
-						"https://www.youtube.com/shorts/LJR_mcaG3_Q?&ab_channel=CarnivorousCultivars",
-						"https://www.youtube.com/shorts/mHnR4wl2Onc?&ab_channel=CarnivorousCultivars"
-					],
 					count: 0,
 				}							
 			},
