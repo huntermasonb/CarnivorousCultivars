@@ -1,23 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss" prefix(tw);
-
-.menu-item {
-  color: var(--tw-color-green-100);
-  font-weight: var(--tw-font-weight-medium);
-  padding: 4px;
-  border-bottom: 1px solid transparent;
-
-}
-.menu-item:hover{
-  border-bottom: 1px solid var(--tw-color-indigo-400);
-
-}
-.menu-item:active{
-  border-bottom: 1px solid var(--tw-color-indigo-600);
-
-}
-/*
---tw-duration: 150ms;
-transition-duration: 150ms;
---tw-ease: var(--tw-ease-in-out);
-transition-timing-function: var(--tw-ease-in-out;);*/

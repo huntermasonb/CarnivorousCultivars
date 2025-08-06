@@ -1,0 +1,15 @@
+.menu-item {
+  color: var(--tw-color-green-100);
+  font-weight: var(--tw-font-weight-medium);
+  padding: 4px;
+  border-bottom: 1px solid transparent;
+
+}
+.menu-item:hover{
+  border-bottom: 1px solid var(--tw-color-indigo-400);
+
+}
+.menu-item:active{
+  border-bottom: 1px solid var(--tw-color-indigo-600);
+
+}
