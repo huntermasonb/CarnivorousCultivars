@@ -3,11 +3,18 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {providePrimeNG} from 'primeng/config';
+import Material from '@primeuix/themes/material'
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    //provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Material
+      }
+    })
   ]
 };
