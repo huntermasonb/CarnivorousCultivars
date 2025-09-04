@@ -14,10 +14,12 @@ import {ButtonDirective} from 'primeng/button';
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',
+  standalone: true
 })
 export class HeaderComponent {
-  isMenuOpen = false;
+  isMenuOpen: boolean = false;
   constructor(private elementRef: ElementRef){}
+  element = ElementRef;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

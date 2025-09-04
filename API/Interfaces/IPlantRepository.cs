@@ -6,6 +6,7 @@ namespace API.Interfaces;
 
 public interface IPlantRepository
 {
-    Task<ActionResult<IEnumerable<PlantDto?>>> GetAllPlantsAsync();
-    Task<ActionResult<PlantDto?>> GetPlantAsync(string name);
+    Task<IEnumerable<PlantDto?>> GetAllPlantsAsync();
+    Task<PlantDto?> GetPlantAsync(string name);
+    Task<IEnumerable<PlantDto?>> GetRandomPlantsAsync(int number);
 }

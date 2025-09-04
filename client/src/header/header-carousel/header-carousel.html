@@ -1,0 +1,24 @@
+<div class="card">
+  <p-carousel [value]="plantService.plants()" [circular]="false" [responsiveOptions]="responsiveOptions"
+              autoplayInterval="3000">
+    <ng-template let-plant #item>
+      <div class="tw:border tw:border-slate-300 tw:dark:border-slate-500 tw:rounded-md tw:m-2 tw:p-4">
+        <div class="tw:mb-4">
+          <div class="tw:relative tw:mx-auto">
+            <img src="http://localhost:4200/favicon.ico" [alt]="plant.name" class="tw:w-auto tw:justify-self-center tw:rounded-border" />
+            <span class="tw:pr-2">Stock:</span><p-tag [value]="plant.stock" [severity]="getSeverity(plant.stock)" class="tw:absolute" />
+          </div>
+        </div>
+        <div class="tw:font-medium tw:pt-4">{{ plant.name }}</div>
+        <div class="tw:flex tw:justify-between tw:items-center">
+          <div class="tw:mt-0 tw:font-semibold tw:text-xl">{{ plant.plantType }}</div>
+          <span>
+            <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
+            <p-button icon="pi pi-shopping-cart" class="tw:ml-2" />
+          </span>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+
