@@ -51,4 +51,15 @@ public class PlantRepository(DataContext context): IPlantRepository
         var dto = plants?.Select(x => x.MapToPlantForDto());
         return dto?.ToList();
     }
+
+    public async Task<IEnumerable<PlantDto?>> GetPlantTypesAsync(int type)
+    {
+        var plants = await context.Plants
+            .Include(p => p.PlantType)
+            .Where(p => p.PlantTypeId == type)
+            .ToListAsync();
+        var dto = plants?.Select(x => x.MapToPlantForDto());
+        return dto?.ToList();
+    }
+    
 }

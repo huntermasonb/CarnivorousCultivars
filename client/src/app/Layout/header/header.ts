@@ -1,7 +1,5 @@
 import {Component, ElementRef, HostListener} from '@angular/core';
-import {RouterLink} from '@angular/router';
-
-import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 import {Drawer} from 'primeng/drawer';
 import {ButtonDirective} from 'primeng/button';
 
@@ -11,10 +9,10 @@ import {ButtonDirective} from 'primeng/button';
     RouterLink,
     Drawer,
     ButtonDirective,
+    RouterLinkActive,
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',
-  standalone: true
 })
 export class HeaderComponent {
   isMenuOpen: boolean = false;
@@ -42,4 +40,6 @@ export class HeaderComponent {
   onEscapeKey(event: Event){
     this.closeMenu();
   }
+
+  protected readonly console = console;
 }

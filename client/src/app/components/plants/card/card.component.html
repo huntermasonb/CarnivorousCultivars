@@ -1,0 +1,15 @@
+<div id="card" class="tw:flex tw:flex-col tw:m-8 tw:p-4 tw:min-h-[288px] tw:border tw:border-red-700 tw:dark:border-red-500 tw:rounded-xl tw:not-dark:text-black">
+  <div id="card-header" class="tw:w-full">
+    <img class="tw:justify-self-center" src="http://localhost:4200/favicon.ico" alt="plant image" />
+  </div>
+  <div id="plant-title" class="tw:self-center tw:mt-4">
+    {{plant.name}}
+  </div>
+  <div id="plant-type" class="tw:font-light tw:w-full tw:flex tw:justify-between">
+    <p>{{plant.plantType}}</p>
+    <p>Stock: {{plant.stock}}</p>
+  </div>
+  <div id="plant-description" class="tw:mt-4">
+    {{plant.description}}
+  </div>
+</div>

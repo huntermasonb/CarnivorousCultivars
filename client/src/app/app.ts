@@ -1,12 +1,12 @@
-import {Component, inject} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {HeaderComponent} from '../header/header';
-import {HttpClient} from '@angular/common/http';
-import {HeaderCarouselComponent} from '../header/header-carousel/header-carousel';
+import {Component} from '@angular/core';
+import { RouterOutlet} from '@angular/router';
+import {HeaderComponent} from './Layout/header/header';
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, HeaderCarouselComponent],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true

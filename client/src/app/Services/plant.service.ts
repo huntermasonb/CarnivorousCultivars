@@ -2,7 +2,7 @@ import {inject, Injectable, signal} from '@angular/core';
 import {environment} from '../../Environments/environment.development';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Plant } from '../Models/Plant';
-import { of } from 'rxjs';
+import { of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class PlantService {
   //Inject httpClient to make http requests, get apiurl from environment.dev...ts, create empty signal of type Plants[]
   private http = inject(HttpClient);
   apiUrl: string = environment.apiUrl;
-  plants = signal<Plant[]>([]);
+  public plants = signal<Plant[]>([]);
 
 
   getAllPlants() {
@@ -22,7 +22,8 @@ export class PlantService {
   }
 
   getPlant(name: string){
-    const plantName = this.plants().find(x => x.Name === name);
+    const params = new HttpParams().set('name', name);
+    const plantName = this.plants().find(x => x.name === params.get('name'));
     if (plantName !== undefined) return of(plantName);
     return this.http.get<Plant>(this.apiUrl + name);
   }
@@ -33,5 +34,12 @@ export class PlantService {
       next: plants => this.plants.set(plants),
       error: error => console.error("Error getting plants from getRandomPlants()", error)
     });
+  }
+
+  getPlantType(type: number){
+    const params = new HttpParams().set('type', type);
+    return this.http.get<Plant[]>(this.apiUrl + `type`, {params}).pipe(
+      tap(plants => { this.plants.set(plants); })
+    );
   }
 }

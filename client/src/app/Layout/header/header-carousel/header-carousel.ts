@@ -1,23 +1,23 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {PlantService} from '../../Services/plant.service';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {Tag} from 'primeng/tag';
+import {PlantService} from '../../../Services/plant.service';
 
 @Component({
   selector: 'app-header-carousel',
   imports: [CarouselModule, ButtonModule, Tag],
-  standalone: true,
   templateUrl: './header-carousel.html',
   styleUrl: './header-carousel.css',
-  providers: [PlantService]
+  providers: [PlantService],
+  standalone: true,
 })
 export class HeaderCarouselComponent implements OnInit{
   plantService = inject(PlantService);
   public responsiveOptions: any[] | undefined;
 
   ngOnInit() {
-    this.loadRandomPlants(2)
+    this.loadRandomPlants(6)
 
     this.responsiveOptions = [
       {
@@ -48,10 +48,10 @@ export class HeaderCarouselComponent implements OnInit{
   }
 
   getSeverity(stock: number){
-    if(stock > 10){
+    if(stock > 6){
       return 'success';
     }
-    else if (stock >= 4 ){
+    else if (stock >= 3 ){
       return 'warn'
     }
     else{

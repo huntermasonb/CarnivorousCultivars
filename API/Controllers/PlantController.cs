@@ -22,8 +22,8 @@ public class PlantsController(IPlantRepository plantRepo) : BaseApiController
         return Ok(plants);
     }
 
-    [HttpGet("{name}")]
-    public async Task<ActionResult<PlantDto?>> GetPlantAsync(string name)
+    [HttpGet("name")]
+    public async Task<ActionResult<PlantDto?>> GetPlantAsync([FromQuery]string name)
     {
         var plant = await plantRepo.GetPlantAsync(name);
         return Ok(plant);
@@ -33,6 +33,13 @@ public class PlantsController(IPlantRepository plantRepo) : BaseApiController
     public async Task<ActionResult<IEnumerable<PlantDto?>>> GetRandomPlantsAsync([FromQuery]int count)
     {
         var plants = await plantRepo.GetRandomPlantsAsync(count);
+        return Ok(plants);
+    }
+
+    [HttpGet("type")]
+    public async Task<ActionResult<IEnumerable<PlantDto?>>> GetPlantTypesAsync([FromQuery]int type)
+    {
+        var plants = await plantRepo.GetPlantTypesAsync(type);
         return Ok(plants);
     }
 }

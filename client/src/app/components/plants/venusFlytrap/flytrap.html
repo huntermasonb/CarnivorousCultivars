@@ -1,0 +1,6 @@
+<h3 class="tw:text-4xl tw:not-dark:text-black tw:justify-self-center tw:p-4">Venus Flytraps</h3>
+<div class="tw:grid tw:grid-cols-1 tw:md:grid-cols-2 tw:lg:grid-cols-3">
+  @for (plant of plantService.plants(); track $index){
+    <app-card [plant]="plant" />
+  }
+</div>

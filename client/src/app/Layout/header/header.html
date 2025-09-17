@@ -1,27 +1,27 @@
 <header aria-label="Navigation Bar" id="header"
-        class="tw:min-h-16 tw:md:mx-10 tw:lg:mx-24 tw:drop-shadow-lg tw:bg-green-800 tw:rounded"
->
+        class="tw:min-h-16 tw:md:mx-10 tw:lg:mx-24 tw:drop-shadow-lg tw:bg-green-800 tw:rounded">
   <!-- PC MENU -->
-  <div class="tw:hidden tw:md:flex tw:flex-row tw:justify-between tw:md:px-10 tw:pt-2">
-    <a routerLink="#" class="tw:font-bold tw:text-2xl tw:text-green-100">Carnivorous Cultivars</a>
+  <nav class="tw:hidden tw:md:flex tw:flex-row tw:justify-between tw:md:px-10 tw:pt-2">
+    <a class="tw:font-bold tw:text-2xl tw:text-green-100">Carnivorous Cultivars</a>
     <div class="tw:inline-flex tw:gap-4 tw:text-xl">
-      <a  routerLink="/home" class="menu-item tw:ease-in-out">
+      <a routerLink="" routerLinkActive="active" class="menu-item tw:ease-in-out">
         Home
       </a>
-      <a routerLink="/about" class="menu-item">
+      <a routerLink="/about" routerLinkActive="active" class="menu-item">
         About
       </a>
-      <a routerLink="/account" class="menu-item">
+      <a routerLink="/account" routerLinkActive="active" class="menu-item">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" aria-label="account" aria-description="account">
           <path d="M200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm69-80h422q-44-39-99.5-59.5T480-280q-56 0-112.5 20.5T269-200Zm211-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z"/>
         </svg>
       </a>
     </div>
-  </div>
+  </nav>
+
 
   <!-- MOBILE MENU  -->
-  <div class="tw:md:hidden tw:flex tw:justify-between tw:w-full tw:pt-4 tw:px-2 tw:text-lg">
-    <a href="#" class="tw:font-bold tw:text-xl tw:text-green-100">Carnivorous Cultivars</a>
+  <nav class="tw:md:hidden tw:flex tw:justify-between tw:w-full tw:pt-4 tw:px-2 tw:text-lg">
+    <a class="tw:font-bold tw:text-xl tw:text-green-100">Carnivorous Cultivars</a>
     <div id="side-menu">
       <button (click)="toggleMenu()" >
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
@@ -31,15 +31,14 @@
 
       <p-drawer header=" " [(visible)]="isMenuOpen" position="right">
         <div class="tw:flex tw:flex-col tw:gap-4">
-          <a routerLink="#">Home</a>
-          <a routerLink="/about">About</a>
+          <a routerLink="" routerLinkActive="active">Home</a>
+          <a routerLink="/about" routerLinkActive="active">About</a>
           <a>Search?</a>
         </div>
-
         <ng-template #footer>
           <div class="tw:flex tw:items-center tw:justify-center">
             <button pButton class="tw:w-1/2">
-              <a routerLink="/account" aria-description="account" aria-label="description">
+              <a routerLink="/account" routerLinkActive="active" aria-description="account" aria-label="description">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                   <path d="M200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm69-80h422q-44-39-99.5-59.5T480-280q-56 0-112.5 20.5T269-200Zm211-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z"/>
                 </svg>
@@ -49,14 +48,14 @@
         </ng-template>
       </p-drawer>
     </div>
-  </div>
+  </nav>
 
   <!-- PLANT TYPES SUBMENU - Always Present -->
   <div id="submenu" class="tw:mt-2" >
     <nav class="tw:flex tw:flex-row tw:justify-center tw:gap-8">
-      <a routerLink="/">Venus Flytraps</a>
-      <a routerLink="/">Pitchers</a>
-      <a routerLink="/">Sundews</a>
+      <a routerLink="/plants/venusflytrap" routerLinkActive="active" (click)="console.log('linked click')">Venus Flytraps</a>
+      <a routerLink="/plants/pitcher" routerLinkActive="active">Pitchers</a>
+      <a routerLink="/plants/sundew" routerLinkActive="active">Sundews</a>
     </nav>
   </div>
 </header>
