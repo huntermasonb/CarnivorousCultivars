@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss" prefix(tw);
+@import "tailwindcss"; /*prefix(tw);*/
 @import "primeicons/primeicons.css";
+
+p-tag{
+  gap: 0 !important;
+}

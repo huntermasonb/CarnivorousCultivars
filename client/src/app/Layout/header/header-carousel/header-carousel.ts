@@ -3,6 +3,7 @@ import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {Tag} from 'primeng/tag';
 import {PlantService} from '../../../Services/plant.service';
+import {Plant} from '../../../Models/Plant';
 
 @Component({
   selector: 'app-header-carousel',
@@ -14,6 +15,7 @@ import {PlantService} from '../../../Services/plant.service';
 })
 export class HeaderCarouselComponent implements OnInit{
   plantService = inject(PlantService);
+  plants: Plant[] = [];
   public responsiveOptions: any[] | undefined;
 
   ngOnInit() {
@@ -23,12 +25,12 @@ export class HeaderCarouselComponent implements OnInit{
       {
         breakpoint: '1400px',
         numVisible: 3,
-        numScroll: 1
+        numScroll: 2
       },
       {
         breakpoint: '1199px',
         numVisible: 3,
-        numScroll: 1
+        numScroll: 2
       },
       {
         breakpoint: '767px',
@@ -44,18 +46,10 @@ export class HeaderCarouselComponent implements OnInit{
   }
 
   loadRandomPlants(count: number){
-    this.plantService.getRandomPlants(count);
-  }
-
-  getSeverity(stock: number){
-    if(stock > 6){
-      return 'success';
-    }
-    else if (stock >= 3 ){
-      return 'warn'
-    }
-    else{
-      return 'danger'
-    }
-  }
+    this.plantService.getRandomPlants(count).subscribe({
+      next: p =>{
+        this.plants = p;
+      }
+    });
+  };
 }

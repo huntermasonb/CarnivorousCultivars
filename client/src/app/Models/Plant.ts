@@ -2,5 +2,5 @@
   name: string
   plantType: string
   description?: string[]
-  stock?: number[]
+  stock: number
 }

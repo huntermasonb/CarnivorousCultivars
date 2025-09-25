@@ -15,25 +15,23 @@ export class PlantService {
 
 
   getAllPlants() {
-    return this.http.get<Plant[]>(this.apiUrl).subscribe({
-      next: plants => this.plants.set(plants),
-      error: error => console.error('Error getting plants from getAllPlants()', error)
-    });
+    return this.http.get<Plant[]>(this.apiUrl).pipe(
+      tap(p => this.plants.set(p))
+    );
   }
 
   getPlant(name: string){
     const params = new HttpParams().set('name', name);
     const plantName = this.plants().find(x => x.name === params.get('name'));
     if (plantName !== undefined) return of(plantName);
-    return this.http.get<Plant>(this.apiUrl + name);
+    return this.http.get<Plant>(this.apiUrl + params);
   }
 
   getRandomPlants(count: number){
     const params = new HttpParams().set('count', count);
-    return this.http.get<Plant[]>(this.apiUrl + `random`, {params}).subscribe({
-      next: plants => this.plants.set(plants),
-      error: error => console.error("Error getting plants from getRandomPlants()", error)
-    });
+    return this.http.get<Plant[]>(this.apiUrl + 'random', {params}).pipe(
+      tap(plants => this.plants.set(plants))
+    );
   }
 
   getPlantType(type: number){
@@ -41,5 +39,18 @@ export class PlantService {
     return this.http.get<Plant[]>(this.apiUrl + `type`, {params}).pipe(
       tap(plants => { this.plants.set(plants); })
     );
+  }
+
+
+  getSeverity(stock: number){
+    if(stock > 6){
+      return 'success';
+    }
+    else if (stock >= 3 ){
+      return 'warn'
+    }
+    else{
+      return 'danger'
+    }
   }
 }
