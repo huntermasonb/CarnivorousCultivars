@@ -12,20 +12,22 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-flytrap',
+  selector: 'app-pitcher',
   imports: [CardComponent, DataView, Tag, Rating, ButtonModule, CommonModule, SelectButton, FormsModule],
-  templateUrl: './flytrap.html',
-  styleUrl: './flytrap.css',
-  standalone: true,
+  templateUrl: './pitcher.component.html',
+  styleUrl: './pitcher.component.css',
   providers: [PlantService],
 })
-export class FlytrapComponent implements OnInit {
+export class PitcherComponent {
   protected plantService = inject(PlantService);
   plants: Plant[] = [];
   options = ['list', 'grid'];
   layout: "list" | "grid"  = 'list';
+  pitchers = ['Highland Pitcher', 'Lowland Pitcher']
+  selectedPitcher: "Highland Pitcher" | "Lowland Pitcher" = 'Highland Pitcher';
 
-  ngOnInit() {    this.loadPlantType(PlantTypes.VenusFlytrap)
+  ngOnInit() {
+    this.loadPlantType(this.getPitcherType())
   }
 
   loadPlantType(type: number){
@@ -34,5 +36,15 @@ export class FlytrapComponent implements OnInit {
         this.plants = p;
       }
     });
+  }
+
+  reloadPitchers(){
+    this.loadPlantType(this.getPitcherType())
+  }
+
+  private getPitcherType(){
+    return this.selectedPitcher === "Highland Pitcher"
+      ? PlantTypes.HighlandPitcher
+      : PlantTypes.LowlandPitcher;
   }
 }

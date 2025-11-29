@@ -1,13 +1,26 @@
-<h3 class="text-4xl button not-dark:text-black justify-self-center p-4">Venus Flytraps</h3>
+<h3 class="text-4xl button not-dark:text-black justify-self-center p-4">Pitcher Plants</h3>
 <div class="data">
-  <p-dataview #dv [value]="plants" [layout]="layout" [rows]="[layout==='grid' ? 8 : 10]" [paginator]="true">
+  <p-dataview #dv [value]="plants" [layout]="layout"
+              [rows]="[layout==='grid' ? 8 : 10]"
+              [paginator]="true"
+  >
     <ng-template #header>
-      <div class="flex justify-end">
-        <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
-          <ng-template #item let-item>
-            <i class="pi " [ngClass]="{ 'pi-bars': item === 'list', 'pi-table': item === 'grid' }"></i>
-          </ng-template>
-        </p-selectbutton>
+      <div class="flex flex-row justify-around">
+        <div class="flex justify-center">
+          <p-selectbutton [(ngModel)]="selectedPitcher"
+                          [options]="pitchers"
+                          [allowEmpty]="false"
+                          (onChange)="reloadPitchers()"
+          >
+          </p-selectbutton>
+        </div>
+        <div>
+          <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
+            <ng-template #item let-item>
+              <i class="pi " [ngClass]="{ 'pi-bars': item === 'list', 'pi-table': item === 'grid' }"></i>
+            </ng-template>
+          </p-selectbutton>
+        </div>
       </div>
     </ng-template>
     <ng-template #list let-items>

@@ -1,0 +1,3 @@
+.p-togglebutton-checked > .p-togglebutton-content > .p-togglebutton-label {
+  color: var(--color-indigo-600) !important;
+}

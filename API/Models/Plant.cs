@@ -7,6 +7,8 @@ public class Plant
     public required string Name { get; set; }
     public string ?Description { get; set; }
     public required int Stock { get; set; }
+    public required int Price { get; set; }
+    public DateTime DateModified { get; set; }
 
     public PlantType PlantType { get; set; } = null!;
 }

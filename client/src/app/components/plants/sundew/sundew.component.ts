@@ -12,20 +12,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-flytrap',
+  selector: 'app-sundew',
   imports: [CardComponent, DataView, Tag, Rating, ButtonModule, CommonModule, SelectButton, FormsModule],
-  templateUrl: './flytrap.html',
-  styleUrl: './flytrap.css',
-  standalone: true,
+  templateUrl: './sundew.component.html',
+  styleUrl: './sundew.component.css',
   providers: [PlantService],
 })
-export class FlytrapComponent implements OnInit {
+export class SundewComponent {
   protected plantService = inject(PlantService);
   plants: Plant[] = [];
   options = ['list', 'grid'];
   layout: "list" | "grid"  = 'list';
 
-  ngOnInit() {    this.loadPlantType(PlantTypes.VenusFlytrap)
+  ngOnInit() {
+    this.loadPlantType(PlantTypes.Sundew)
   }
 
   loadPlantType(type: number){

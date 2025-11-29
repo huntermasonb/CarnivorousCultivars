@@ -40,6 +40,4 @@ export class HeaderComponent {
   onEscapeKey(event: Event){
     this.closeMenu();
   }
-
-  protected readonly console = console;
 }

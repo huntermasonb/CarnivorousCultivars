@@ -13,6 +13,7 @@ public static class Extension
             PlantType = plant.PlantType.Name,
             Description = plant.Description,
             Stock = plant.Stock,
+            Price = plant.Price
         };
     }
     
@@ -24,6 +25,7 @@ public static class Extension
             PlantType = plantDto.PlantType,
             Description = plantDto.Description,
             Stock = plantDto.Stock,
+            Price = plantDto.Price
         };
     }
 }

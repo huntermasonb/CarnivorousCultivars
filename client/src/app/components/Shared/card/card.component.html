@@ -1,18 +1,18 @@
-<div id="card" class="flex flex-col m-8 p-4 h-9/10 border border-red-700 dark:border-red-500 rounded-xl not-dark:text-black">
+<div id="card" class="flex flex-col m-8 p-4 h-9/10 border border-indigo-800 dark:border-indigo-500 rounded-xl not-dark:text-black">
   <div id="card-header" class="w-full">
     <img class="justify-self-center" src="http://localhost:4200/favicon.ico" alt="plant image" />
   </div>
-  <div id="plant-title" class="self-center mt-4">
+  <div id="plant-title" class="self-center mt-5">
     {{plant.name}}
   </div>
-  <div id="plant-type" class="font-light w-full flex justify-between">
+  <div id="plant-type" class="font-light w-full mt-5 flex justify-between">
     <p>{{plant.plantType}}</p>
     <p>Stock: <p-tag [value]="plant.stock.toString()" [severity]="getSeverity(plant.stock)" /></p>
   </div>
-  <div id="plant-description" class="mt-4 overflow-ellipsis">
+  <div id="plant-description" class="mt-5 overflow-ellipsis">
     {{plant.description}}
   </div>
-  <div class="flex justify-between mt-4">
+  <div class="flex justify-between mt-5">
     <p-button icon="pi pi-heart" severity="help" [outlined]="true" />
     <p-button icon="pi pi-shopping-cart" class="sm:ml-2" />
   </div>

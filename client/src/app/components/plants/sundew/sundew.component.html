@@ -1,6 +1,9 @@
-<h3 class="text-4xl button not-dark:text-black justify-self-center p-4">Venus Flytraps</h3>
+<h3 class="text-4xl button not-dark:text-black justify-self-center p-4">Sundews</h3>
 <div class="data">
-  <p-dataview #dv [value]="plants" [layout]="layout" [rows]="[layout==='grid' ? 8 : 10]" [paginator]="true">
+  <p-dataview #dv [value]="plants" [layout]="layout"
+              [rows]="[layout==='grid' ? 8 : 10]"
+              [paginator]="true"
+  >
     <ng-template #header>
       <div class="flex justify-end">
         <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
