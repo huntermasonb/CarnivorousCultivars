@@ -23,6 +23,7 @@ builder.Services.AddRateLimiter(opt =>
         policy.QueueLimit = 0;
     });
 });
+//builder.Services.AddAuthentication
 builder.Services.AddOpenApi();
 builder.Services.AddCors(options =>
 {

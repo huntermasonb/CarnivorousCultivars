@@ -27,7 +27,7 @@ export class HeaderComponent {
     this.isMenuOpen = false;
   }
 
-  @HostListener('document:click', ['$event'])
+/*  @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
     const target = event.target as HTMLElement;
     const headerElement = this.elementRef.nativeElement;
@@ -36,8 +36,8 @@ export class HeaderComponent {
       this.closeMenu();
     }
   }
-  @HostListener('document:keydown.escape')
+   @HostListener('document:keydown.escape')
   onEscapeKey(event: Event){
     this.closeMenu();
-  }
+  }*/
 }

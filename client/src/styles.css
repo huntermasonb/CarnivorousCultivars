@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss"; /*prefix(tw);*/
 @import "primeicons/primeicons.css";
+@plugin "daisyui";
 @theme {}
 p-tag{
   gap: 0 !important;
 }
 
 .active {
-  border-bottom: 1px solid var(--color-indigo-500) !important;
+  border-bottom: 2px solid var(--color-indigo-500) !important;
 }
 
 /*Select Button changes for pitcher plants*/
