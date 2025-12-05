@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss"; /*prefix(tw);*/
 @import "primeicons/primeicons.css";
-@plugin "daisyui";
-@theme {}
+@plugin "daisyui"{
+  themes: emerald --default, night --prefers-dark;
+}
+
 p-tag{
   gap: 0 !important;
 }

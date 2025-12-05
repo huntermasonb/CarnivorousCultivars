@@ -1,5 +1,5 @@
-<nav class="navbar w-full min-h-16 drop-shadow-lg bg-green-800 rounded ">
-  <label for="drawer-toggle" aria-label="open sidebar" class="btn btn-square btn-ghost">
+<nav class="navbar justify-between w-full min-h-16 drop-shadow-lg bg-green-800 rounded ">
+  <label for="drawer-toggle" aria-label="open sidebar" class="btn btn-square btn-sm md:btn-md btn-ghost  gap-0">
     <!-- Sidebar toggle icon -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor" class="my-1.5 inline-block size-4">
       <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
@@ -7,9 +7,16 @@
       <path d="M14 10l2 2l-2 2"></path>
     </svg>
   </label>
-  <div class="flex flex-row w-full justify-evenly align-center text-2xl" aria-label="plant categories">
+  <span class="block text-xl md:text-2xl text-white md:hidden">Carnivorous Cultivars</span>
+  <div class="hidden md:flex md:flex-row w-full justify-evenly align-center md:text-2xl" aria-label="plant categories">
     <a id="menu-item" routerLink="/plants/venusflytrap" routerLinkActive="active" aria-label="venus flytraps">Venus Flytraps</a>
     <a id="menu-item" routerLink="/plants/pitcher" routerLinkActive="active" aria-label="pitchers">Pitchers</a>
     <a id="menu-item" routerLink="/plants/sundew" routerLinkActive="active" aria-label="sundews">Sundews</a>
   </div>
+<!-- Theme Picker -->
+  <label class="flex cursor-pointer gap-2 text-base-300">
+    <a class="pi pi-sun" aria-label="toggle light mode"></a>
+    <input type="checkbox" value="night" class="toggle theme-controller" />
+    <a class="pi pi-moon" aria-label="toggle dark mode"></a>
+  </label>
 </nav>
